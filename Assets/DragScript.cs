@@ -28,16 +28,6 @@ public class DragScript : MonoBehaviour
         CheckTouch();
     }
 
-    //void mouseInsteadOfTouch()
-    //{
-    //    bool clicked = Input.GetMouseButtonDown(0);
-    //    Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    //    if (clicked)
-    //    {
-    //        if ()
-    //    }
-    //}
-
     void CheckTouch()
     {
         // Initiating touch event
