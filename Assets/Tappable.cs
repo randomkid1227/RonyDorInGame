@@ -6,13 +6,13 @@ public class Tappable : MonoBehaviour
 {
 
     // touch offset allows ball not to shake when it starts moving
-    float deltaX, deltaY;
+    float deltaX, deltaY, xStart,yStart;
 
     // reference to Rigidbody2D component
     Rigidbody2D rb;
 
     // ball movement not allowed if you touches not the ball at the first time
-    bool tapped = false;
+    int tapCounter = 0;
 
     // Use this for initialization
     void Start()
@@ -36,8 +36,7 @@ public class Tappable : MonoBehaviour
             if (GetComponent<BoxCollider2D>() == Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
             {
 
-                tapped = true;
-                if (tapped) Destroy(this.gameObject);
+                if (tapCounter >= 3) Destroy(this.gameObject);
             }
         }
     }
@@ -63,12 +62,14 @@ public class Tappable : MonoBehaviour
                 case TouchPhase.Began:
 
                     // if you touch the ball
-                    if (GetComponent<BoxCollider2D>() == Physics2D.OverlapPoint(touchPos))
+                    if (GetComponent<CircleCollider2D>() == Physics2D.OverlapPoint(touchPos))
                     {
 
-                        tapped = true;        
+
                         // get the offset between position you touhes
                         // and the center of the game object
+                        xStart = touchPos.x;
+                        yStart = touchPos.y;
                         deltaX = touchPos.x - transform.position.x;
                         deltaY = touchPos.y - transform.position.y;
                     }
@@ -77,10 +78,20 @@ public class Tappable : MonoBehaviour
 
                 // you release your finger
                 case TouchPhase.Ended:
-
+                    float xDistance = Mathf.Abs(touchPos.x - xStart);
+                    float yDistance = Mathf.Abs(touchPos.y - yStart);
+               
+                    float distance = Mathf.Sqrt(xDistance * xDistance + yDistance * yDistance);
+                    Debug.Log(distance);
+                    if (distance < 0.1)
+                    {
+                        tapCounter++;
+                        xStart = 20.0f;
+                        yStart = 20.0f;
+                    }
                     // restore initial parameters
                     // when thouch is ended
-                    if (tapped) Destroy(this.gameObject);
+                    if (tapCounter >= 3) Destroy(this.gameObject);
                     break;
             }
 

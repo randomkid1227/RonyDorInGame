@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50737097592013506}
   - component: {fileID: 61264344368319008}
   m_Layer: 0
-  m_Name: RTS_Crate
+  m_Name: p_border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
