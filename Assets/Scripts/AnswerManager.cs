@@ -7,11 +7,10 @@ public class AnswerManager : MonoBehaviour {
     private float xStart;
     private float yStart;
     Rigidbody2D rb;
-    GameObject matchManager;
+    public GameObject matchManager;
 
     // Use this for initialization
     void Start () {
-        matchManager = GameObject.FindGameObjectWithTag("MatchManager");
         rb = GetComponent<Rigidbody2D>();
         tapped = false;
     }

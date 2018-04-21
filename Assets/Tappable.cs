@@ -12,7 +12,7 @@ public class Tappable : MonoBehaviour
     Rigidbody2D rb;
 
     // Was the letter tapped?
-    bool tapped;    
+    public bool tapped;    
     // Use this for initialization
     void Start()
     {
@@ -24,15 +24,21 @@ public class Tappable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckTouch();
         CheckMouse();
+        CheckTouch();
+        if (tapped)
+        {
+            gameObject.GetComponentInChildren<LetterDisplay>().SendLetter();
+            Destroy(gameObject);
+            //Destroy(this.gameObject); // Should be bubble;
+        }
     }
 
     void CheckMouse()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (GetComponent<BoxCollider2D>() == Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
+            if (GetComponent<CircleCollider2D>() == Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
             {
                 tapped = true;
             }
@@ -66,10 +72,7 @@ public class Tappable : MonoBehaviour
 
                         // get the offset between position you touhes
                         // and the center of the game object
-                        xStart = touchPos.x;
-                        yStart = touchPos.y;
-                        deltaX = touchPos.x - transform.position.x;
-                        deltaY = touchPos.y - transform.position.y;
+                        tapped = true;
                     }
                     break;
 
@@ -81,20 +84,15 @@ public class Tappable : MonoBehaviour
                
                     float distance = Mathf.Sqrt(xDistance * xDistance + yDistance * yDistance);
                     Debug.Log(distance);
-                    if (distance < 0.1)
-                    {
-                        tapped = true;
-                        xStart = 20.0f;
-                        yStart = 20.0f;
-                    }
-                    // restore initial parameters
+                    //if (distance < 0.1)
+                    //{
+                    //    tapped = true;
+                    //    xStart = 20.0f;
+                    //    yStart = 20.0f;
+                    //}
+                    //// restore initial parameters
                     // when thouch is ended
-                    if (tapped)
-                    {
-                        gameObject.GetComponentInChildren<LetterDisplay>().SendLetter();
-                        Destroy(gameObject);
-                        //Destroy(this.gameObject); // Should be bubble;
-                    }
+                   
                     break;
             }
 

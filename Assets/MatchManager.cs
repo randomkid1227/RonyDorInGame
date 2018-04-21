@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MatchManager : MonoBehaviour {
 
+    public GameObject AnswerBox;
     public string chosenCategory;
     private string submittedString;
     bool submitted;
@@ -71,5 +72,7 @@ public class MatchManager : MonoBehaviour {
     public void setSubmitTrue()
     {
         this.submitted = true;
+        this.submittedString = AnswerBox.GetComponentInChildren<AnswerBox>().letters.text;
+        AnswerBox.GetComponent<AnswerBox>().wipeText();
     }
 }
