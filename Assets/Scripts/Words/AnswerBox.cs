@@ -6,13 +6,16 @@ using UnityEngine.UI;
 public class AnswerBox : MonoBehaviour {
 
     public Text letters;
-
+    string text;
 	// Use this for initialization
 	void Start () {
-        letters.text = "";
+        letters = gameObject.GetComponent<Text>();
+        this.text = "";
 	}
 
     public void appendText (string letter) {
-        letters.text += letter;
+
+        this.text += letter;
+        letters.text = this.text;
     }
 }

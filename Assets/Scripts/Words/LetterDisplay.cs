@@ -13,6 +13,6 @@ public class LetterDisplay : MonoBehaviour {
     }
 
     public void SendLetter () {
-        answerBox.GetComponent<AnswerManager>().appendText(text.text);
+        answerBox.GetComponent<AnswerBox>().appendText(text.text);
     }
 }
