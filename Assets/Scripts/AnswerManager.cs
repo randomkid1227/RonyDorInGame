@@ -2,31 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tappable : MonoBehaviour
-{
-
-    // touch offset allows ball not to shake when it starts moving
-    float deltaX, deltaY, xStart,yStart;
-
-    // reference to Rigidbody2D component
+public class AnswerManager : MonoBehaviour {
+    private bool tapped;
+    private float xStart;
+    private float yStart;
     Rigidbody2D rb;
+    GameObject matchManager;
 
-    // Was the letter tapped?
-    bool tapped;    
     // Use this for initialization
-    void Start()
-    {
-        tapped = false;
+    void Start () {
+        matchManager = GameObject.FindGameObjectWithTag("MatchManager");
         rb = GetComponent<Rigidbody2D>();
-
+        tapped = false;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        CheckTouch();
+	
+	// Update is called once per frame
+	void Update () {
         CheckMouse();
-    }
+        CheckTouch();
+		if (tapped)
+        {
+            tapped = false;
+            clicked();
+        }
+	}
 
     void CheckMouse()
     {
@@ -38,7 +37,6 @@ public class Tappable : MonoBehaviour
             }
         }
     }
-
     void CheckTouch()
     {
         // Initiating touch event
@@ -60,7 +58,7 @@ public class Tappable : MonoBehaviour
                 case TouchPhase.Began:
 
                     // if you touch the ball
-                    if (GetComponent<CircleCollider2D>() == Physics2D.OverlapPoint(touchPos))
+                    if (GetComponent<BoxCollider2D>() == Physics2D.OverlapPoint(touchPos))
                     {
 
 
@@ -68,8 +66,6 @@ public class Tappable : MonoBehaviour
                         // and the center of the game object
                         xStart = touchPos.x;
                         yStart = touchPos.y;
-                        deltaX = touchPos.x - transform.position.x;
-                        deltaY = touchPos.y - transform.position.y;
                     }
                     break;
 
@@ -78,7 +74,7 @@ public class Tappable : MonoBehaviour
                 case TouchPhase.Ended:
                     float xDistance = Mathf.Abs(touchPos.x - xStart);
                     float yDistance = Mathf.Abs(touchPos.y - yStart);
-               
+
                     float distance = Mathf.Sqrt(xDistance * xDistance + yDistance * yDistance);
                     Debug.Log(distance);
                     if (distance < 0.1)
@@ -91,13 +87,15 @@ public class Tappable : MonoBehaviour
                     // when thouch is ended
                     if (tapped)
                     {
-                        gameObject.GetComponentInChildren<LetterDisplay>().SendLetter();
-                        Destroy(gameObject);
+                        this.rb.gravityScale = 1;
                         //Destroy(this.gameObject); // Should be bubble;
                     }
                     break;
             }
-
         }
+    }
+    public void clicked()
+    {
+        matchManager.GetComponent<MatchManager>().setSubmitTrue();
     }
 }

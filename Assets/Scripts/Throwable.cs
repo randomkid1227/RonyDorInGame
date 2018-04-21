@@ -29,7 +29,7 @@ public class Throwable : MonoBehaviour
             touchTimeStart = Time.time;
             startPos = Input.GetTouch(0).position;
         }
-
+        
         // if you release your finger
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
         {
