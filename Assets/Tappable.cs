@@ -11,13 +11,12 @@ public class Tappable : MonoBehaviour
     // reference to Rigidbody2D component
     Rigidbody2D rb;
 
-    // ball movement not allowed if you touches not the ball at the first time
-    int tapCounter = 0;
-
+    // Was the letter tapped?
+    bool tapped;    
     // Use this for initialization
     void Start()
     {
-
+        tapped = false;
         rb = GetComponent<Rigidbody2D>();
 
     }
@@ -35,8 +34,7 @@ public class Tappable : MonoBehaviour
         {
             if (GetComponent<BoxCollider2D>() == Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
             {
-
-                if (tapCounter >= 3) Destroy(this.gameObject);
+                tapped = true;
             }
         }
     }
@@ -85,13 +83,18 @@ public class Tappable : MonoBehaviour
                     Debug.Log(distance);
                     if (distance < 0.1)
                     {
-                        tapCounter++;
+                        tapped = true;
                         xStart = 20.0f;
                         yStart = 20.0f;
                     }
                     // restore initial parameters
                     // when thouch is ended
-                    if (tapCounter >= 3) Destroy(this.gameObject);
+                    if (tapped)
+                    {
+                        gameObject.GetComponentInChildren<LetterDisplay>().SendLetter();
+                        Destroy(gameObject);
+                        //Destroy(this.gameObject); // Should be bubble;
+                    }
                     break;
             }
 
