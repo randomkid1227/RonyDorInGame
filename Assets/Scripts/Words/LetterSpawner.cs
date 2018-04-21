@@ -8,9 +8,9 @@ public class LetterSpawner : MonoBehaviour {
 
     public LetterDisplay SpawnLetter()
     {
-        GameObject letterObject = Instantiate(LetterPrefub);
+        Vector2 vector = new Vector2(Random.Range(-9f, 9f), 7f);
+        GameObject letterObject = Instantiate(LetterPrefub, vector, Quaternion.identity);
         LetterDisplay letterDisplay = letterObject.GetComponentInChildren<LetterDisplay>();
-
         return letterDisplay;
     }
 }

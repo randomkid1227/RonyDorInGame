@@ -18,7 +18,6 @@ public class AnswerBox : MonoBehaviour {
         this.text += letter;
         letters.text = this.text;
         Debug.Log("String is now " + this.letters.text);
-        Destroy(letters.GetComponent<GameObject>());
     }
      public void wipeText()
     {
