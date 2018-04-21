@@ -6,12 +6,12 @@ public class LetterManager : MonoBehaviour {
 
     public List<Letter> letters;
     public LetterSpawner letterSpawner;
+    public float spawnSpeed;
 
     private void Start()
 	{
-        addLetter();
-        addLetter();
-        addLetter();
+
+        InvokeRepeating("addLetter", 1f, spawnSpeed);
 	}
 
     public void addLetter() {

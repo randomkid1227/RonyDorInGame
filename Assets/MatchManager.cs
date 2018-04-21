@@ -4,22 +4,27 @@ using UnityEngine;
 
 public class MatchManager : MonoBehaviour {
 
+    public GameObject WinText;
     public GameObject AnswerBox;
     public string chosenCategory;
+    public int score = 0;
+
     private string submittedString;
+
     bool submitted;
     string[] cities = { "לוד", "תל אביב", "הרצליה", "רחובות", "אילת", "רמלה", "רעננה", "נתניה", "חיפה" };
 
 	// Use this for initialization
 	void Start () {
         submitted = false;
+        score = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (submitted)
         {
-            checkCategoryCity();
+            won();
         }
 	}
 
@@ -49,7 +54,7 @@ public class MatchManager : MonoBehaviour {
                     for(int k = 0; k < submittedString.Length; k++)
                     {
                         // If the letter matches, stop and try to match the next letter.
-                        if(word.ToCharArray()[j] == submittedString.ToCharArray()[k])
+                        if(word.ToCharArray()[k] == submittedString.ToCharArray()[j])
                         {
                             counter++;
                             break;
@@ -73,6 +78,20 @@ public class MatchManager : MonoBehaviour {
     {
         this.submitted = true;
         this.submittedString = AnswerBox.GetComponentInChildren<AnswerBox>().letters.text;
+        Debug.Log("Input is " + this.submittedString);
         AnswerBox.GetComponent<AnswerBox>().wipeText();
     }
+
+    private void won()
+    {
+        if (checkCategoryCity())
+        {
+            Debug.Log("WON!");
+            Instantiate(WinText, );
+            score += 100;
+        }
+        else score -= 20;
+    }
+
+
 }

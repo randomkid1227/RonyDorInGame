@@ -15,7 +15,7 @@ public class AnswerBox : MonoBehaviour {
 
     public void appendText (string letter) {
         Debug.Log("Writing text");
-        this.text += letter;
+        this.text = letter + this.text;
         letters.text = this.text;
         Debug.Log("String is now " + this.letters.text);
     }
