@@ -6,6 +6,7 @@ public class MatchManager : MonoBehaviour {
 
     public GameObject WinText;
     public GameObject AnswerBox;
+    public Transform canvas;
     public string chosenCategory;
     public int score = 0;
 
@@ -87,7 +88,7 @@ public class MatchManager : MonoBehaviour {
         if (checkCategoryCity())
         {
             Debug.Log("WON!");
-            Instantiate(WinText, );
+            Instantiate(WinText, canvas);
             score += 100;
         }
         else score -= 20;
