@@ -6,12 +6,12 @@ public class MatchManager : MonoBehaviour {
 
     public string chosenCategory;
     private string submittedString;
-    bool submitted = false;
+    bool submitted;
     string[] cities = { "לוד", "תל אביב", "הרצליה", "רחובות", "אילת", "רמלה", "רעננה", "נתניה", "חיפה" };
 
 	// Use this for initialization
 	void Start () {
-		
+        submitted = false;
 	}
 	
 	// Update is called once per frame

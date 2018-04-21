@@ -20,11 +20,6 @@ public class AnswerManager : MonoBehaviour {
 	void Update () {
         CheckMouse();
         CheckTouch();
-		if (tapped)
-        {
-            tapped = false;
-            clicked();
-        }
 	}
 
     void CheckMouse()
@@ -61,34 +56,16 @@ public class AnswerManager : MonoBehaviour {
                     if (GetComponent<BoxCollider2D>() == Physics2D.OverlapPoint(touchPos))
                     {
 
-
-                        // get the offset between position you touhes
-                        // and the center of the game object
-                        xStart = touchPos.x;
-                        yStart = touchPos.y;
+                        tapped = true;
                     }
                     break;
 
 
                 // you release your finger
                 case TouchPhase.Ended:
-                    float xDistance = Mathf.Abs(touchPos.x - xStart);
-                    float yDistance = Mathf.Abs(touchPos.y - yStart);
-
-                    float distance = Mathf.Sqrt(xDistance * xDistance + yDistance * yDistance);
-                    Debug.Log(distance);
-                    if (distance < 0.1)
+                  if (tapped)
                     {
-                        tapped = true;
-                        xStart = 20.0f;
-                        yStart = 20.0f;
-                    }
-                    // restore initial parameters
-                    // when thouch is ended
-                    if (tapped)
-                    {
-                        this.rb.gravityScale = 1;
-                        //Destroy(this.gameObject); // Should be bubble;
+                        clicked();
                     }
                     break;
             }
