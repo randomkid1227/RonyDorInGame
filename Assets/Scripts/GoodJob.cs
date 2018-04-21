@@ -11,7 +11,7 @@ public class GoodJob : MonoBehaviour {
 	}
     void Update()
     {
-        if (Time.time == this.time+5f)
+        if (Time.time >= this.time+5f)
         {
             Destroy(gameObject);
         }

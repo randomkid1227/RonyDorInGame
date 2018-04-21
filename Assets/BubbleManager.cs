@@ -10,5 +10,6 @@ public class BubbleManager : MonoBehaviour {
 	void Update ()
     {
         transform.Translate(0f, -speed *Time.deltaTime, 0f);
+        if (gameObject.transform.position.y <= -7f) Destroy(gameObject);
 	}
 }

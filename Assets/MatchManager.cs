@@ -26,6 +26,7 @@ public class MatchManager : MonoBehaviour {
 		if (submitted)
         {
             won();
+            submitted = false;
         }
 	}
 

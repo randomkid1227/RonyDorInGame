@@ -65,6 +65,7 @@ public class AnswerManager : MonoBehaviour {
                   if (tapped)
                     {
                         clicked();
+                        tapped = false;
                     }
                     break;
             }

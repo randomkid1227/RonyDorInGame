@@ -601,7 +601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   letters: []
   letterSpawner: {fileID: 1838594765}
-  spawnSpeed: 0.3
+  spawnSpeed: 0.8
 --- !u!4 &1838594764
 Transform:
   m_ObjectHideFlags: 0
