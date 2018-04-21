@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 222250344060898026}
   - component: {fileID: 50873219690370310}
   - component: {fileID: 58487566888710068}
+  - component: {fileID: 114908488552481998}
   m_Layer: 0
   m_Name: Bubble
   m_TagString: Untagged
@@ -221,7 +222,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 114428653127107344}
-  answerBox: {fileID: 1045481926315340, guid: 8a4aa49d7704d9342869b46bf11fbefb, type: 2}
+  answerBox: {fileID: 0}
+--- !u!114 &114908488552481998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1098594694322928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c0573a5c1f43114dbdd568b11ccb9c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!212 &212989150415799054
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -305,7 +318,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1248054017224896}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4320}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224525731259975652}

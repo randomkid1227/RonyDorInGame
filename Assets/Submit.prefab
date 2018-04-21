@@ -116,7 +116,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u05D4\u05D0\u05D1\u05D4\u05D0\u05D3\u05D1\u05D3\u05D0\u05D1\u05D3\u05D2\u05D2\u05D3\u05D0\u05D4\u05D0\u05D0\u05D1\u05D3\u05D4\u05D0\u05D4\u05D1\u05D0\u05D1\u05D3\u05D0\u05D2\u05D0\u05D4\u05D4\u05D0"
+  m_Text: 
 --- !u!114 &114853605458240530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   letters: {fileID: 114758118973931974}
-  text: "\u05D4\u05D0\u05D1\u05D4\u05D0\u05D3\u05D1\u05D3\u05D0\u05D1\u05D3\u05D2\u05D2\u05D3\u05D0\u05D4\u05D0\u05D0\u05D1\u05D3\u05D4\u05D0\u05D4\u05D1\u05D0\u05D1\u05D3\u05D0\u05D2\u05D0\u05D4\u05D4\u05D0"
+  text: 
 --- !u!222 &222148758957126856
 CanvasRenderer:
   m_ObjectHideFlags: 1
