@@ -29,7 +29,7 @@ public class MatchManager : MonoBehaviour {
             submitted = false;
         }
 	}
-
+        
     private bool checkCategoryCity() //Currently only cities, need more categories
     {
         // As there are no 2 letter words if submitted less than 2 letters, return no match.

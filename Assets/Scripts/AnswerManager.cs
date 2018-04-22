@@ -19,7 +19,12 @@ public class AnswerManager : MonoBehaviour {
 	void Update () {
         CheckMouse();
         CheckTouch();
-	}
+         if (tapped)
+        {
+            clicked();
+            tapped = false;
+        }
+    }
 
     void CheckMouse()
     {
@@ -62,11 +67,7 @@ public class AnswerManager : MonoBehaviour {
 
                 // you release your finger
                 case TouchPhase.Ended:
-                  if (tapped)
-                    {
-                        clicked();
-                        tapped = false;
-                    }
+                 
                     break;
             }
         }

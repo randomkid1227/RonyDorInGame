@@ -21,7 +21,7 @@ public class AnswerBox : MonoBehaviour {
     }
      public void wipeText()
     {
-        this.text = " ";
+        this.text = "";
         letters.text = this.text;
         Debug.Log("Removed text");
         Debug.Log(this.letters.text);
