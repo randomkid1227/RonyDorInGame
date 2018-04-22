@@ -16,8 +16,6 @@ public class LetterManager : MonoBehaviour {
 
     public void addLetter() {
         Letter letter = new Letter(LetterGenerator.GetRandomWord(), letterSpawner.SpawnLetter());
-        Debug.Log(letter.letter);
-
         letters.Add(letter);
     }
 }
