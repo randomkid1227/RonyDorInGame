@@ -23,6 +23,8 @@ public class BubbleManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        this.currentTime = Time.time;
+        if (currentTime - spawnTime >= bubbleDuration) Destroy(gameObject);
         //transform.Translate(xC * Time.deltaTime, yC * Time.deltaTime, 0); // Moves the bubble
         //if (gameObject.transform.position.y <= -7f) Destroy(gameObject);
     }

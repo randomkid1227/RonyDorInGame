@@ -24,7 +24,7 @@ public class Tappable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- //       CheckMouse();
+        CheckMouse();
         CheckTouch();
         if (tapped)
         {
@@ -51,7 +51,8 @@ public class Tappable : MonoBehaviour
         // if touch event takes place
         if (Input.touchCount > 0)
         {
-
+            //Debug.Log(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position));
+            
             // get touch to take a deal with
             Touch touch = Input.GetTouch(0);
             Debug.Log("Tocuhed");
