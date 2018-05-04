@@ -234,7 +234,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c0573a5c1f43114dbdd568b11ccb9c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  bubbleDuration: 6
+  speed: 0
+  spawnTime: 0
 --- !u!212 &212989150415799054
 SpriteRenderer:
   m_ObjectHideFlags: 1

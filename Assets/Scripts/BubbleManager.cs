@@ -4,12 +4,28 @@ using UnityEngine;
 
 public class BubbleManager : MonoBehaviour {
 
-    public float speed = 1f;
-	
+    public float bubbleDuration = 3f;
+    public float speedMax = 1f;
+    public float speedMin = -1f;
+    private float spawnTime;
+    private float currentTime;
+    void Start ()
+    {
+        spawnTime = Time.time;
+    }
+
 	// Update is called once per frame
 	void Update ()
     {
-        transform.Translate(0f, -speed *Time.deltaTime, 0f);
-        if (gameObject.transform.position.y <= -7f) Destroy(gameObject);
+        this.currentTime = Time.time;
+        if (currentTime - spawnTime >= bubbleDuration) Destroy(gameObject);
+        float speed = Random.Range(speedMin, speedMax);
+        transform.Translate(getRange() * Time.deltaTime, getRange() *Time.deltaTime, 0); // Moves the bubble
+        //if (gameObject.transform.position.y <= -7f) Destroy(gameObject);
 	}
+
+    float getRange()
+    {
+        return Random.Range(speedMin, speedMax);
+    }
 }
