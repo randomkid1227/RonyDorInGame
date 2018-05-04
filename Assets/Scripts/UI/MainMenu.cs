@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
 
     public void PlayGame() {
-        // Will activate the next scene in the queue (build options)
+        // Will activate the next scene in the queue (build options)  
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
