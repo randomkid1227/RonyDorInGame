@@ -24,7 +24,7 @@ public class Tappable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckMouse();
+ //       CheckMouse();
         CheckTouch();
         if (tapped)
         {
@@ -54,6 +54,7 @@ public class Tappable : MonoBehaviour
 
             // get touch to take a deal with
             Touch touch = Input.GetTouch(0);
+            Debug.Log("Tocuhed");
 
             // obtain touch position
             Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
@@ -66,7 +67,8 @@ public class Tappable : MonoBehaviour
                 case TouchPhase.Began:
 
                     // if you touch the ball
-                    if (GetComponent<CircleCollider2D>() == Physics2D.OverlapPoint(touchPos))
+                    Debug.Log(touchPos);
+                    if (GetComponent<CircleCollider2D>() == Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(touch.position)))
                     {
 
 
