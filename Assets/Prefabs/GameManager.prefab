@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114031739170519704}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,3 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f781dd713d27f9d498a717be6bb2116f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
+  time: 0

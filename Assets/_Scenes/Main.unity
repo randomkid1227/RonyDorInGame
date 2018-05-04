@@ -313,11 +313,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4001633648347470, guid: 56b3721b8f1ee86439c502a46d079f55, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5.704
+      value: -6.61
       objectReference: {fileID: 0}
     - target: {fileID: 4001633648347470, guid: 56b3721b8f1ee86439c502a46d079f55, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.404
+      value: 4.37
       objectReference: {fileID: 0}
     - target: {fileID: 4001633648347470, guid: 56b3721b8f1ee86439c502a46d079f55, type: 2}
       propertyPath: m_LocalPosition.z
@@ -605,7 +605,7 @@ GameObject:
   - component: {fileID: 1372784957}
   - component: {fileID: 1372784956}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SceneBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
