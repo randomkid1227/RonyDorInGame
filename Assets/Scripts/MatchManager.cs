@@ -7,22 +7,22 @@ public class MatchManager : MonoBehaviour {
     public GameObject WinText;
     public GameObject AnswerBox;
     public Transform canvas;
-    public string chosenCategory;
+    public string[] chosenCategory = { "לוד", "תל אביב", "הרצליה", "רחובות", "אילת", "רמלה", "רעננה", "נתניה", "חיפה" };
     public int score = 0;
 
     private string submittedString;
 
     bool submitted;
-    string[] cities = { "לוד", "תל אביב", "הרצליה", "רחובות", "אילת", "רמלה", "רעננה", "נתניה", "חיפה" };
-
+    
 	// Use this for initialization
 	void Start () {
         submitted = false;
         score = 0;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        //chosenCategory = 
+    }
+
+    // Update is called once per frame
+    void Update () {
 		if (submitted)
         {
             won();
@@ -30,7 +30,7 @@ public class MatchManager : MonoBehaviour {
         }
 	}
         
-    private bool checkCategoryCity() //Currently only cities, need more categories
+    private bool checkCategory() //Currently only cities, need more categories
     {
         // As there are no 2 letter words if submitted less than 2 letters, return no match.
         if (submittedString.Length <= 2)
@@ -43,11 +43,11 @@ public class MatchManager : MonoBehaviour {
         int counter = 0;
         int wordLength = submittedString.Length;
 
-        for (int i = 0; i < cities.Length; i++)
+        for (int i = 0; i < chosenCategory.Length; i++)
         {
-            word = cities[i];
+            word = chosenCategory[i];
             // Checks if we should check the word based on its length.
-            if (wordLength == cities[i].Length)
+            if (wordLength == chosenCategory[i].Length)
             {
                 // Compares user input letters to letters of list items
                 // Can improve efficiency
@@ -86,7 +86,7 @@ public class MatchManager : MonoBehaviour {
 
     private void won()
     {
-        if (checkCategoryCity())
+        if (checkCategory())
         {
             Debug.Log("WON!");
             Instantiate(WinText, canvas);

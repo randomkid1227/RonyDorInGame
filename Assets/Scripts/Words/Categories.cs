@@ -4,13 +4,25 @@ using UnityEngine;
 
 public class Categories : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public Dictionary<string, string[]> myDict;
+    string[] categories;
+    // Use this for initialization
+    void Start () {
+        string[] categories = { "ערים", "פירות וירקות", "חיות", "מדינות" };
+        string[] cities = { "לוד", "משהו" };
+        string[] world = { "World" };  
+        myDict = new Dictionary<string, string[]> { { "ערים", cities }, { "Hello", world } };
+    }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public string[] getCategory(string name)
+    {
+        return myDict[name];
+    }
+
+    // Completely random, maybe add logic to not repeat
+    public string getRandomCategoryName()
+    {
+        return categories[Random.Range(0, categories.Length)];
+    }
+
 }
