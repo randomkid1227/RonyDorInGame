@@ -9,17 +9,18 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1477618094766134}
+  m_RootGameObject: {fileID: 1545883530212848}
   m_IsPrefabParent: 1
---- !u!1 &1477618094766134
+--- !u!1 &1545883530212848
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4769006501053782}
-  - component: {fileID: 114099091202746712}
+  - component: {fileID: 4934167928495698}
+  - component: {fileID: 114469461791053340}
+  - component: {fileID: 114355327117978086}
   m_Layer: 0
   m_Name: MatchManager
   m_TagString: MatchManager
@@ -27,12 +28,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4769006501053782
+--- !u!4 &4934167928495698
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1477618094766134}
+  m_GameObject: {fileID: 1545883530212848}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.704, y: -3.404, z: 0}
   m_LocalScale: {x: 1.682782, y: 1.7945099, z: 1}
@@ -40,16 +41,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114099091202746712
+--- !u!114 &114355327117978086
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1477618094766134}
+  m_GameObject: {fileID: 1545883530212848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64165c070a27bf346b930dd0b403fceb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  display_categories: []
+--- !u!114 &114469461791053340
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1545883530212848}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f95036ca6e9d74a49b5eea65f786d1f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WinText: {fileID: 1289978374979564, guid: 3bc12d6ed33dc4f9a9d58c9f432ea700, type: 2}
   AnswerBox: {fileID: 0}
-  chosenCategory: 
+  canvas: {fileID: 0}
+  chosenCategory: []
+  score: 0

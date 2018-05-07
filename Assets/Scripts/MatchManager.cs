@@ -18,7 +18,8 @@ public class MatchManager : MonoBehaviour {
 	void Start () {
         submitted = false;
         score = 0;
-        //chosenCategory = 
+        // Change the chosen category.
+        this.chosenCategory = gameObject.GetComponent<Categories>().getCategory(GameManager.instance.current_category);
     }
 
     // Update is called once per frame
