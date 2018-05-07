@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ButtonScript : MonoBehaviour {
+
+    public int mainSceneID = 2;
     public int id;
-    Text text;
     string[] categories;
     string value;
+    Text text;
 
     // Use this for initialization
     void Start () {
@@ -17,15 +20,16 @@ public class ButtonScript : MonoBehaviour {
         text.text = Reverse(value);
     }
 
+    public void buttonClicked()
+    {
+        GameManager.instance.current_category = this.value;
+        SceneManager.LoadScene(2);
+    }
+
     public static string Reverse(string s)
     {
         char[] charArray = s.ToCharArray();
         System.Array.Reverse(charArray);
         return new string(charArray);
     }
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
 }
