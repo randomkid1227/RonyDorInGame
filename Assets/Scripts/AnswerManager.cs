@@ -59,7 +59,6 @@ public class AnswerManager : MonoBehaviour {
                     // if you touch the ball
                     if (GetComponent<BoxCollider2D>() == Physics2D.OverlapPoint(touchPos))
                     {
-
                         tapped = true;
                     }
                     break;

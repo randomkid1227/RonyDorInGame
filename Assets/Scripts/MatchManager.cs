@@ -94,6 +94,4 @@ public class MatchManager : MonoBehaviour {
         }
         else score -= 20;
     }
-
-
 }
