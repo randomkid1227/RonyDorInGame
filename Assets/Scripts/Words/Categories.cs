@@ -10,9 +10,11 @@ public class Categories : MonoBehaviour {
     public string[] display_categories;
     // Use this for initialization
     void Start () {
-        string[] cities = { "לוד", "משהו" };
-        string[] world = { "World" };  
-        myDict = new Dictionary<string, string[]> { { "ערים", cities }, { "Hello", world } };
+        string[] cities = { "לוד", "חיפה", "נתניה", "אילת", "רעננה", "הרצליה", "רחובות", "גדרה", "חדרה" };
+        string[] fruits_vegetables = { "תפוח", "תפוז", "עגבניה", "גזר", "מלפפון", "אננס", "אבטיח", "מלון", "חסה" };
+        string[] animals = { "פיל", "נחש", "נמר", "אריה", "חתול", "כלב", "אוגר", "זברה", "קרנפ", "צבי" };
+        string[] countries = { "ישראל", "אוגנדה", "דנמרק", "שוויצ", "שוודיה", "צרפת", "גרמניה", "הולנד" };
+        myDict = new Dictionary<string, string[]> { { "ערים", cities }, { "פירות וירקות", fruits_vegetables }, { "חיות", animals }, { "מדינות", countries } };
         display_categories = get3Categories();
     }
 	
