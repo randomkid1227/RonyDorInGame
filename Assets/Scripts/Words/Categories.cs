@@ -15,7 +15,7 @@ public class Categories : MonoBehaviour {
         string[] animals = { "פיל", "נחש", "נמר", "אריה", "חתול", "כלב", "אוגר", "זברה", "קרנפ", "צבי" };
         string[] countries = { "ישראל", "אוגנדה", "דנמרק", "שוויצ", "שוודיה", "צרפת", "גרמניה", "הולנד" };
         myDict = new Dictionary<string, string[]> { { "ערים", cities }, { "פירות וירקות", fruits_vegetables }, { "חיות", animals }, { "מדינות", countries } };
-        display_categories = get3Categories();
+        this.display_categories = get3Categories();
     }
 	
     public string[] getCategory(string name)

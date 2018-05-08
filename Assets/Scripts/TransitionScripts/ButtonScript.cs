@@ -15,8 +15,8 @@ public class ButtonScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         text = gameObject.GetComponentInChildren<Text>();
-        categories = gameObject.GetComponentInParent<Categories>().display_categories;
-        value = categories[id - 1];
+        categories = gameObject.GetComponentInParent<Categories>().get3Categories();
+        value = categories[this.id];
         text.text = Reverse(value);
     }
 
