@@ -10,19 +10,20 @@ public class ButtonScript : MonoBehaviour {
     public int id;
     string[] categories;
     string value;
-    Text text;
+    Text buttonText;
 
     // Use this for initialization
     void Start () {
-        text = gameObject.GetComponentInChildren<Text>();
-        categories = gameObject.GetComponentInParent<Categories>().get3Categories();
+        buttonText = gameObject.GetComponentInChildren<Text>();
+        categories = gameObject.GetComponentInParent<Categories>().display_categories;
         value = categories[this.id];
-        text.text = Reverse(value);
+        buttonText.text = Reverse(value);
     }
 
     public void buttonClicked()
     {
         GameManager.instance.current_category = this.value;
+        GameManager.instance.startTimer();
         SceneManager.LoadScene(2);
     }
 

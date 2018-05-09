@@ -7,7 +7,7 @@ public class MatchManager : MonoBehaviour {
     public GameObject WinText;
     public GameObject AnswerBox;
     public Transform canvas;
-    public string[] chosenCategory = { "לוד", "תל אביב", "הרצליה", "רחובות", "אילת", "רמלה", "רעננה", "נתניה", "חיפה" };
+    public string[] chosenCategory;
     public int score = 0;
 
     private string submittedString;
