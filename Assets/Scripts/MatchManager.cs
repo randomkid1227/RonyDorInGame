@@ -9,7 +9,7 @@ public class MatchManager : MonoBehaviour {
     public Transform canvas;
     public string[] chosenCategory;
     public int score = 0;
-
+    public int wordSize;
     private string submittedString;
 
     bool submitted;
@@ -20,6 +20,8 @@ public class MatchManager : MonoBehaviour {
         score = 0;
         // Change the chosen category.
         this.chosenCategory = gameObject.GetComponent<Categories>().getCategory(GameManager.instance.current_category);
+        int randomIndex = (int) Random.Range(0f, chosenCategory.Length);
+        this.wordSize = chosenCategory[randomIndex].Length;
     }
 
     // Update is called once per frame

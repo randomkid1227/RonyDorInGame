@@ -7,7 +7,7 @@
     {         this.time = 120f;         this.score = 0;     }
 
     void Update () {
-        timer();         if (time <= 0)         {             found_words.Find()             return; // Lose game         }     } 
+        timer();         if (time <= 0)         {             return; // Lose game         }     } 
     void timer()
     {
         if (run)

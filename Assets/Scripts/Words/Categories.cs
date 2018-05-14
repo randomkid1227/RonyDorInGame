@@ -14,7 +14,7 @@ public class Categories : MonoBehaviour {
 
     public string[] display_categories;
     // Use this for initialization
-    void Start () {
+    void Awake () {
         this.display_categories = get3Categories();
         myDict = new Dictionary<string, string[]> { { "ערים", cities }, { "פירות וירקות", fruits_vegetables }, { "חיות", animals }, { "מדינות", countries } };
     }
