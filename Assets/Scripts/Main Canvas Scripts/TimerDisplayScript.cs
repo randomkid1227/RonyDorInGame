@@ -22,6 +22,7 @@ public class TimerDisplayScript : MonoBehaviour {
     {
         int minutes = (int) (GameManager.instance.time / 60.0);
         int seconds = (int) (GameManager.instance.time % 60.0);
+        if (seconds < 10) return minutes.ToString() + ":0" + seconds.ToString(); 
         return minutes.ToString() + ":" + seconds.ToString();
     }
 }

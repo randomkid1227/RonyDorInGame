@@ -7,7 +7,7 @@
     {         this.time = 120f;         this.score = 0;     }
 
     void Update () {
-        timer();         if (time <= 0)         {             return; // Lose game         }     } 
+        timer();         if (time <= 0.1f)         {             Debug.Log("LOST!"); // Lose game         }     } 
     void timer()
     {
         if (run)

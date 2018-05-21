@@ -7,6 +7,7 @@ public class MatchManager : MonoBehaviour {
     public GameObject WinText;
     public GameObject AnswerBox;
     public Transform canvas;
+    public float AdditionalWinningTime;
     public string[] chosenCategory;
     public int score = 0;
     public int wordSize;
@@ -35,13 +36,7 @@ public class MatchManager : MonoBehaviour {
         
     private bool checkCategory() //Currently only cities, need more categories
     {
-        // As there are no 2 letter words if submitted less than 2 letters, return no match.
-        if (submittedString.Length <= 2)
-        {
-            submitted = false;
-            return false;
-        }
-    
+
         string word;
         int counter = 0;
         int wordLength = submittedString.Length;
@@ -82,7 +77,7 @@ public class MatchManager : MonoBehaviour {
     public void setSubmitTrue()
     {
         this.submitted = true;
-        this.submittedString = AnswerBox.GetComponentInChildren<AnswerBox>().letters.text;
+        this.submittedString = AnswerBox.GetComponent<AnswerBox>().text;
         Debug.Log("Input is " + this.submittedString);
         AnswerBox.GetComponent<AnswerBox>().wipeText();
     }
@@ -91,6 +86,7 @@ public class MatchManager : MonoBehaviour {
     {
         if (checkCategory())
         {
+            GameManager.instance.time += AdditionalWinningTime;
             Debug.Log("WON!");
             Instantiate(WinText, canvas);
             score += 100;

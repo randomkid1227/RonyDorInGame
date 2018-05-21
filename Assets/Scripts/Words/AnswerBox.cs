@@ -10,6 +10,7 @@ public class AnswerBox : MonoBehaviour {
     public GameObject box;
     public GameObject manager;
     public float boxSize;
+    private int numletters;
     public int letterCounter = 0;
 
     private Transform transformation;
@@ -17,10 +18,17 @@ public class AnswerBox : MonoBehaviour {
     void Start () {
         //        letters = gameObject.GetComponent<Text>();
         this.text = "";
-        int amount = manager.GetComponent<MatchManager>().wordSize;
-        spawnBoxes(amount);
+        numletters = manager.GetComponent<MatchManager>().wordSize;
+        spawnBoxes(numletters);
         Transform transformation = this.transform;
 	}
+    void Update()
+    {
+        if (letterCounter == numletters)
+        {
+            manager.GetComponent<MatchManager>().setSubmitTrue();
+        }
+    }
 
     public void appendText (string letter) {
         foreach (Transform child in transform)
@@ -29,23 +37,27 @@ public class AnswerBox : MonoBehaviour {
             {
                 this.text += letter;
                 child.gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = letter;
-                this.letterCounter++;
             }
         }
+        this.letterCounter++;
     }
      public void wipeText()
     {
-        TMPro.TextMeshProUGUI text = gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>();
-        text.text = "";
+        foreach (Transform child in transform)
+        {
+            child.gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "";
+        }
+        this.text = "";
+        this.letterCounter = 0;
     }
-
+    
     public void spawnBoxes(int amount)
     {
         for(int i = 0; i < amount; i++)
         {
-            float offset = 8.0f / amount;
-            GameObject spawnedBox = Instantiate(box);
-            spawnedBox.transform.position = new Vector2((boxSize + 1) * i - offset, transform.position.y);
+            float offset = 2f;
+            GameObject spawnedBox = Instantiate(box, this.transform);
+            spawnedBox.transform.position = new Vector2(offset - (boxSize+0.7f) * i, transform.position.y);
             spawnedBox.GetComponent<boxScript>().id = i;
         }
     }
