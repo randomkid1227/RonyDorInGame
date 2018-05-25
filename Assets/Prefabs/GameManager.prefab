@@ -53,3 +53,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   time: 0
+  AdditionalWinningTime: 20
+  current_category: 
+  found_words: []

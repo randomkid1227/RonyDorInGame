@@ -1,4 +1,5 @@
-﻿using System.Collections; using System.Collections.Generic; using UnityEngine;  public class GameManager : MonoBehaviour {      public int score;     public float time;     public string current_category;
+﻿using System.Collections; using System.Collections.Generic; using UnityEngine;  public class GameManager : MonoBehaviour {      public int score;     public float time;     public float AdditionalWinningTime;
+    public string current_category;
     public List<string> found_words = new List<string>();
 
     public static GameManager instance = null;
@@ -7,7 +8,7 @@
     {         this.time = 120f;         this.score = 0;     }
 
     void Update () {
-        timer();         if (time <= 0.1f)         {             Debug.Log("LOST!"); // Lose game         }     } 
+        timer();         if (time <= 0.01f)         {             Debug.Log("LOST!"); // Lose game         }     } 
     void timer()
     {
         if (run)
@@ -15,6 +16,17 @@
             this.time -= Time.deltaTime;
             if (this.time <= 0) Debug.Log("Out of time");
         }
+    }
+
+    // updates the score
+    public void addScore(int amount)
+    {
+        this.score += amount;
+    }
+
+    //Add time
+    public void addTime() {
+        this.time += AdditionalWinningTime;
     }
 
     // Start and stop timer are public and can be called from any script as long as GameManager exists.

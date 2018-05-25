@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MatchManager : MonoBehaviour {
 
@@ -12,6 +13,9 @@ public class MatchManager : MonoBehaviour {
     public int score = 0;
     public int wordSize;
     private string submittedString;
+    public int scoreToAddOnWin;
+    public int scoreToRemoveOnLose;
+    private string wordFound;
 
     bool submitted;
     
@@ -63,8 +67,13 @@ public class MatchManager : MonoBehaviour {
                 }
                 if (counter == wordLength)
                 {
-                    submitted = false;
-                    return true;
+                    wordFound = chosenCategory[i];
+                    if (!wasFound())
+                    {
+                        GameManager.instance.found_words.Add(wordFound);
+                        submitted = false;
+                        return true;
+                    }
                 }
                 // Restart counter if word doesn't match
                 counter = 0;
@@ -82,15 +91,22 @@ public class MatchManager : MonoBehaviour {
         AnswerBox.GetComponent<AnswerBox>().wipeText();
     }
 
+    private bool wasFound()
+    {
+        return GameManager.instance.found_words.Contains(wordFound);
+    }
+
     private void won()
     {
         if (checkCategory())
         {
-            GameManager.instance.time += AdditionalWinningTime;
+            GameManager.instance.found_words.Add(submittedString);
+            GameManager.instance.time += GameManager.instance.AdditionalWinningTime;
             Debug.Log("WON!");
             Instantiate(WinText, canvas);
-            score += 100;
+            GameManager.instance.addScore(scoreToAddOnWin);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
-        else score -= 20;
+        else GameManager.instance.addScore(-1 * scoreToRemoveOnLose);
     }
 }
