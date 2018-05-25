@@ -928,7 +928,7 @@ RectTransform:
   m_GameObject: {fileID: 1398283796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.020833334, y: 0.020833334, z: 0.020833334}
+  m_LocalScale: {x: 0.0078125, y: 0.0078125, z: 0.0078125}
   m_Children:
   - {fileID: 2023752305}
   - {fileID: 1212404816}
@@ -1394,3 +1394,25 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2043642644}
+--- !u!1 &2065656403 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1374289805570168, guid: 3464d8c1d75f5429f99a37ddba0ed1be,
+    type: 2}
+  m_PrefabInternal: {fileID: 1060016306}
+--- !u!95 &2065656406
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2065656403}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3337b223f3f4c4f9fa64c25997b20f6c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
