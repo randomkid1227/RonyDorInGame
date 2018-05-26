@@ -12,19 +12,25 @@ public class BubbleManager : MonoBehaviour {
     private float lastUpdateTime;
     public float wiggleInterval = 0.5f;
     private float xC, yC;
+    Animator animator;
+
     void Start ()
     {
         xC = getRange();
         yC = getRange();
         spawnTime = Time.time;
         lastUpdateTime = Time.time;
+        animator = gameObject.GetComponentInChildren<Animator>();
     }
 
 	// Update is called once per frame
 	void Update ()
     {
         this.currentTime = Time.time;
-        if (currentTime - spawnTime >= bubbleDuration) Destroy(gameObject);
+        if (currentTime - spawnTime >= bubbleDuration) {
+            animator.SetInteger("State", 2);
+            Destroy(gameObject, 2); 
+        }
         //transform.Translate(xC * Time.deltaTime, yC * Time.deltaTime, 0); // Moves the bubble
         //if (gameObject.transform.position.y <= -7f) Destroy(gameObject);
     }

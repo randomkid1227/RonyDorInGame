@@ -30,9 +30,12 @@ public class Tappable : MonoBehaviour
         CheckTouch();
         if (tapped)
         {
+            tapped = false;
+
             gameObject.GetComponentInChildren<LetterDisplay>().SendLetter();
             animator.SetInteger("State", 2);
-            Destroy(gameObject);
+            Destroy(gameObject, 2);
+
             //Destroy(this.gameObject); // Should be bubble;
         }
     }
@@ -104,4 +107,5 @@ public class Tappable : MonoBehaviour
 
         }
     }
+
 }
