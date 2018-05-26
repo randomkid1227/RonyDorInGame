@@ -7,6 +7,8 @@ public class Tappable : MonoBehaviour
 
     // touch offset allows ball not to shake when it starts moving
     float deltaX, deltaY, xStart,yStart;
+    GameObject spriteImage;
+    Animator animator;
 
     // reference to Rigidbody2D component
     Rigidbody2D rb;
@@ -18,7 +20,7 @@ public class Tappable : MonoBehaviour
     {
         tapped = false;
         rb = GetComponent<Rigidbody2D>();
-
+        animator = gameObject.GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -29,6 +31,7 @@ public class Tappable : MonoBehaviour
         if (tapped)
         {
             gameObject.GetComponentInChildren<LetterDisplay>().SendLetter();
+            animator.SetInteger("State", 2);
             Destroy(gameObject);
             //Destroy(this.gameObject); // Should be bubble;
         }

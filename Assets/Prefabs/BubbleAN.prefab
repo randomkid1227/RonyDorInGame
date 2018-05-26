@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4495326079457702}
   - component: {fileID: 212013170459115834}
   - component: {fileID: 95013553798765094}
+  - component: {fileID: 114413018213735984}
   m_Layer: 0
   m_Name: BubbleAN
   m_TagString: Untagged
@@ -58,6 +59,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114413018213735984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1266734493039272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b77292ceb6fdc43b596874fe193e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tapped: 0
 --- !u!212 &212013170459115834
 SpriteRenderer:
   m_ObjectHideFlags: 1
