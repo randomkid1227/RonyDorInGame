@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b77292ceb6fdc43b596874fe193e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: a97b6502e23a4c148a124f807ffd8329, type: 3}
+  clip: {fileID: 8300000, guid: 4393818fff63f460f831d0155288925f, type: 3}
   tapped: 0
 --- !u!114 &114368267341638652
 MonoBehaviour:
@@ -184,7 +184,7 @@ MonoBehaviour:
   speedMax: 1
   speedMin: -1
   wiggleInterval: 3
-  clip: {fileID: 8300000, guid: a97b6502e23a4c148a124f807ffd8329, type: 3}
+  clip: {fileID: 8300000, guid: 4393818fff63f460f831d0155288925f, type: 3}
 --- !u!114 &114613345091021724
 MonoBehaviour:
   m_ObjectHideFlags: 1

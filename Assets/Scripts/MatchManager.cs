@@ -104,6 +104,7 @@ public class MatchManager : MonoBehaviour {
             GameManager.instance.time += GameManager.instance.AdditionalWinningTime;
             Debug.Log("WON!");
             Instantiate(WinText, canvas);
+            GameManager.instance.level += 1;
             GameManager.instance.addScore(scoreToAddOnWin);
             GameManager.instance.stopTimer();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);

@@ -55,9 +55,9 @@ public class AnswerBox : MonoBehaviour {
     {
         for(int i = 0; i < amount; i++)
         {
-            float offset = 2f;
+            float offset = 2.1f;
             GameObject spawnedBox = Instantiate(box, this.transform);
-            spawnedBox.transform.position = new Vector2(offset - (boxSize+0.7f) * i, transform.position.y);
+            spawnedBox.transform.position = new Vector2(offset - (boxSize+0.5f) * i, transform.position.y);
             spawnedBox.GetComponent<boxScript>().id = i;
         }
     }

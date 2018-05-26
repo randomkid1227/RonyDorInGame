@@ -2,6 +2,7 @@
   public class GameManager : MonoBehaviour {      public int score;     public float time;     public float AdditionalWinningTime;
     public string current_category;
     public List<string> found_words = new List<string>();
+    public int level = 1;
 
     public static GameManager instance = null;
 
