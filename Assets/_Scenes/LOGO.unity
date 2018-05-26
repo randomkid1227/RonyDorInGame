@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 822948302}
   - component: {fileID: 822948301}
   - component: {fileID: 822948300}
+  - component: {fileID: 822948304}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -434,6 +435,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &822948304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 822948299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c694230c9c00412aa135adbe457dc64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fadeout: {fileID: 1864819827}
 --- !u!1 &974584143
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,7 +837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeOperations:
   - delay: 1
-    duration: 3
+    duration: 2
     fadeOption: 1
 --- !u!225 &1864819829
 CanvasGroup:
