@@ -105,6 +105,7 @@ public class MatchManager : MonoBehaviour {
             Debug.Log("WON!");
             Instantiate(WinText, canvas);
             GameManager.instance.addScore(scoreToAddOnWin);
+            GameManager.instance.stopTimer();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
         else GameManager.instance.addScore(-1 * scoreToRemoveOnLose);

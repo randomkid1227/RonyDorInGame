@@ -1,4 +1,5 @@
-﻿using System.Collections; using System.Collections.Generic; using UnityEngine;  public class GameManager : MonoBehaviour {      public int score;     public float time;     public float AdditionalWinningTime;
+﻿using System.Collections; using System.Collections.Generic; using UnityEngine; using UnityEngine.SceneManagement;
+  public class GameManager : MonoBehaviour {      public int score;     public float time;     public float AdditionalWinningTime;
     public string current_category;
     public List<string> found_words = new List<string>();
 
@@ -14,7 +15,7 @@
         if (run)
         {
             this.time -= Time.deltaTime;
-            if (this.time <= 0) Debug.Log("Out of time");
+            if (this.time <= 0) SceneManager.LoadScene(4);
         }
     }
 

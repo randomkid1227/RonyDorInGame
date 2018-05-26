@@ -26,7 +26,7 @@ public class ButtonScript : MonoBehaviour {
     {
         GameManager.instance.current_category = this.value;
         GameManager.instance.startTimer();
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     void Update()
