@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class ButtonScript : MonoBehaviour {
 
@@ -10,11 +11,12 @@ public class ButtonScript : MonoBehaviour {
     public int id;
     string[] categories;
     string value;
-    Text buttonText;
+    TMPro.TextMeshProUGUI buttonText;
+
 
     // Use this for initialization
     void Start () {
-        buttonText = gameObject.GetComponentInChildren<Text>();
+        buttonText = gameObject.GetComponent<TMPro.TextMeshProUGUI>();
         categories = gameObject.GetComponentInParent<Categories>().display_categories;
         value = categories[this.id];
         buttonText.text = Reverse(value);
@@ -25,6 +27,18 @@ public class ButtonScript : MonoBehaviour {
         GameManager.instance.current_category = this.value;
         GameManager.instance.startTimer();
         SceneManager.LoadScene(2);
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (GetComponent<BoxCollider2D>() == Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
+            {
+                buttonClicked();
+                Destroy(this);
+            }
+        }
     }
 
     public static string Reverse(string s)
