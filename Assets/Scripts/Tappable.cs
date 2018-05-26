@@ -7,8 +7,11 @@ public class Tappable : MonoBehaviour
 
     // touch offset allows ball not to shake when it starts moving
     float deltaX, deltaY, xStart,yStart;
+    int c;
     GameObject spriteImage;
     Animator animator;
+    public AudioClip clip;
+
 
     // reference to Rigidbody2D component
     Rigidbody2D rb;
@@ -18,6 +21,7 @@ public class Tappable : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        c = 0;
         tapped = false;
         rb = GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponentInChildren<Animator>();
@@ -27,14 +31,19 @@ public class Tappable : MonoBehaviour
     void Update()
     {
         CheckMouse();
-        CheckTouch();
+    //      CheckTouch();
         if (tapped)
         {
             tapped = false;
-
-            gameObject.GetComponentInChildren<LetterDisplay>().SendLetter();
-            animator.SetInteger("State", 2);
-            Destroy(gameObject, 2);
+            if (gameObject.transform.childCount > 1 && c == 1)
+            {
+                //animator.SetInteger("State", 2);
+                AudioSource.PlayClipAtPoint(clip, new Vector3(0, 0, 0));
+                animator.Play("Explode");
+                Destroy(gameObject.transform.GetChild(1).gameObject, 0.2f);
+                gameObject.GetComponentInChildren<LetterDisplay>().SendLetter();
+                Destroy(gameObject, 1f);
+            }
 
             //Destroy(this.gameObject); // Should be bubble;
         }
@@ -47,6 +56,7 @@ public class Tappable : MonoBehaviour
             if (GetComponent<CircleCollider2D>() == Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
             {
                 tapped = true;
+                c++;
             }
         }
     }

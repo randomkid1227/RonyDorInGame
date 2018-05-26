@@ -13,6 +13,8 @@ public class BubbleManager : MonoBehaviour {
     public float wiggleInterval = 0.5f;
     private float xC, yC;
     Animator animator;
+    public AudioClip clip;
+    bool play = true;
 
     void Start ()
     {
@@ -28,8 +30,15 @@ public class BubbleManager : MonoBehaviour {
     {
         this.currentTime = Time.time;
         if (currentTime - spawnTime >= bubbleDuration) {
-            animator.SetInteger("State", 2);
-            Destroy(gameObject, 2); 
+            //animator.SetInteger("State", 2);
+            if (gameObject.transform.childCount > 1)
+            {
+                if (play) AudioSource.PlayClipAtPoint(clip, new Vector3(0, 0, 0));
+                play = false;
+                animator.Play("Explode");
+                Destroy(gameObject.transform.GetChild(1).gameObject, 0.2f);
+                Destroy(gameObject, 1f);
+            }
         }
         //transform.Translate(xC * Time.deltaTime, yC * Time.deltaTime, 0); // Moves the bubble
         //if (gameObject.transform.position.y <= -7f) Destroy(gameObject);
