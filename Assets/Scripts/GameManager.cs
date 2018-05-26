@@ -9,13 +9,17 @@
     {         this.time = 120f;         this.score = 0;     }
 
     void Update () {
-        timer();         if (time <= 0.01f)         {             Debug.Log("LOST!"); // Lose game         }     } 
+        timer();      } 
     void timer()
     {
         if (run)
         {
             this.time -= Time.deltaTime;
-            if (this.time <= 0) SceneManager.LoadScene(4);
+            if (this.time <= 0)
+            {
+                stopTimer();
+                SceneManager.LoadScene(4);
+            }
         }
     }
 
