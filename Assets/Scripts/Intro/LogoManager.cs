@@ -15,14 +15,10 @@ public class LogoManager : MonoBehaviour {
 
 		if (Input.anyKeyDown) {
 			Destroy (GameObject.Find ("LogoFadeIn"));
-			Fadeout.SetActive (true);
-			Debug.Log (Fadeout.GetComponent<CanvasGroup> ().alpha);
-
+			Fadeout.SetActive(true);
             StartCoroutine("waitSeconds");
-
 			SceneManager.LoadScene(nextScene);
-		}
-			
+		}	
 	}
 
     IEnumerator waitSeconds()

@@ -21,4 +21,8 @@ public class Pause : MonoBehaviour {
         GameManager.instance.startTimer();
         gameIsPaused = false;
     }
+
+    public void stopGame() {
+        Application.Quit();
+    }
 }
