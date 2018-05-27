@@ -49,3 +49,6 @@ TagManager:
   - name: Words
     uniqueID: 2673195043
     locked: 0
+  - name: Pause
+    uniqueID: 663489961
+    locked: 0
