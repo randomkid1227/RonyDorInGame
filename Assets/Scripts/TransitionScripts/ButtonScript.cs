@@ -10,7 +10,7 @@ public class ButtonScript : MonoBehaviour {
     public int mainSceneID = 2;
     public int id;
     string[] categories;
-    string value;
+    public string value;
     TMPro.TextMeshProUGUI buttonText;
 
 
