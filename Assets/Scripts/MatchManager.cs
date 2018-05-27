@@ -10,12 +10,13 @@ public class MatchManager : MonoBehaviour {
     public Transform canvas;
     public float AdditionalWinningTime;
     public string[] chosenCategory;
+    public string randomWord;
     public int score = 0;
     public int wordSize;
-    private string submittedString;
     public int scoreToAddOnWin;
     public int scoreToRemoveOnLose;
     private string wordFound;
+    private string submittedString;
 
     bool submitted;
     
@@ -26,7 +27,8 @@ public class MatchManager : MonoBehaviour {
         // Change the chosen category.
         this.chosenCategory = gameObject.GetComponent<Categories>().getCategory(GameManager.instance.current_category);
         int randomIndex = (int) Random.Range(0f, chosenCategory.Length);
-        this.wordSize = chosenCategory[randomIndex].Length;
+        this.randomWord = chosenCategory[randomIndex];
+        this.wordSize = randomWord.Length;
     }
 
     // Update is called once per frame
@@ -110,5 +112,10 @@ public class MatchManager : MonoBehaviour {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
         else GameManager.instance.addScore(-1 * scoreToRemoveOnLose);
+    }
+
+    public string getRandomWord()
+    {
+        return this.randomWord;
     }
 }

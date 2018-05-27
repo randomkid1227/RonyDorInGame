@@ -8,14 +8,15 @@ public class LetterManager : MonoBehaviour {
     public LetterSpawner letterSpawner;
     public float spawnSpeed;
     public LetterType generatorType;
-    public enum LetterType {letter, vowel}
+    public enum LetterType {letter, vowel, word}
     
 
     private void Start()
     {
         string generatingFunction;
         if (this.generatorType == LetterType.vowel) generatingFunction = "addVowel";
-        else generatingFunction = "addLetter";
+        else if (this.generatorType == LetterType.letter) generatingFunction = "addLetter";
+        else generatingFunction = "addWord";
         InvokeRepeating(generatingFunction, 1f, spawnSpeed);
 	}
 
@@ -26,6 +27,11 @@ public class LetterManager : MonoBehaviour {
     public void addVowel()
     {
         Letter letter = new Letter(LetterGenerator.GetRandomVowel(), letterSpawner.SpawnLetter());
+        letters.Add(letter);
+    }
+    public void addWord()
+    {
+        Letter letter = new Letter(LetterGenerator.getWord(), letterSpawner.SpawnLetter());
         letters.Add(letter);
     }
 }
