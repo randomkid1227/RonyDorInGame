@@ -9,7 +9,9 @@ public class LetterManager : MonoBehaviour {
     public float spawnSpeed;
     public LetterType generatorType;
     public enum LetterType {letter, vowel, word}
-    
+    public static string[] letterList = { "א", "ב", "ג", "ד", "ה", "ו", "ז", "ח", "ט", "י", "כ", "ל", "מ", "נ", "ס", "ע", "פ", "צ", "ק", "ר", "ש", "ת" };
+
+
 
     private void Start()
     {
@@ -21,8 +23,12 @@ public class LetterManager : MonoBehaviour {
 	}
 
     public void addLetter() {
-        Letter letter = new Letter(LetterGenerator.GetRandomWord(), letterSpawner.SpawnLetter());
-        letters.Add(letter);
+        // Added this as prototype, can remove the for loop and keep code inside block to revert.
+        for (int i = 0; i < 22; i++)
+        {
+            Letter letter = new Letter(letterList[i].ToString(), letterSpawner.SpawnLetter());
+            letters.Add(letter);
+        }
     }
     public void addVowel()
     {

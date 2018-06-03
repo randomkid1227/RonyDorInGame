@@ -675,7 +675,6 @@ GameObject:
   - component: {fileID: 569180684}
   - component: {fileID: 569180687}
   - component: {fileID: 569180685}
-  - component: {fileID: 569180686}
   m_Layer: 5
   m_Name: score
   m_TagString: Untagged
@@ -815,17 +814,6 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &569180686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 569180683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa6cd0d688625b14288b21a18cadd6ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &569180687
 CanvasRenderer:
   m_ObjectHideFlags: 0
