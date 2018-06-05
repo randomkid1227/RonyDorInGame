@@ -51,12 +51,15 @@ public class Tappable : MonoBehaviour
 
     void CheckMouse()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Time.timeScale != 0)
         {
-            if (GetComponent<CircleCollider2D>() == Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
+            if (Input.GetMouseButtonDown(0))
             {
-                tapped = true;
-                c++;
+                if (GetComponent<CircleCollider2D>() == Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
+                {
+                    tapped = true;
+                    c++;
+                }
             }
         }
     }

@@ -22,7 +22,7 @@ public class LetterManager : MonoBehaviour {
         InvokeRepeating(generatingFunction, 1f, spawnSpeed);
 	}
 
-    public void addLetter() {
+    public void addAllLetters() {
         // Added this as prototype, can remove the for loop and keep code inside block to revert.
         for (int i = 0; i < 22; i++)
         {
@@ -30,6 +30,13 @@ public class LetterManager : MonoBehaviour {
             letters.Add(letter);
         }
     }
+
+    public void addLetter()
+    {
+        Letter letter = new Letter(LetterGenerator.GetRandomWord(), letterSpawner.SpawnLetter());
+        letters.Add(letter);
+    }
+
     public void addVowel()
     {
         Letter letter = new Letter(LetterGenerator.GetRandomVowel(), letterSpawner.SpawnLetter());
